@@ -7,7 +7,7 @@
   const btnCek = document.getElementById('btnCek');
 
   // Waktu pembukaan
-  const openAt = new Date('2026-05-29T05:00:00+07:00').getTime();
+  const openAt = new Date('2026-06-29T05:00:00+07:00').getTime();
 
   function pad2(n) {
     return String(n).padStart(2, '0');
