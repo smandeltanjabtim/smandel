@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEK SPMB</title>
+  <meta name="description"
+    content="Website Resmi SMAN 8 Tanjung Jabung Timur - Sekolah Menengah Atas Negeri terbaik di Tanjung Jabung Timur">
+
+  <!-- 🔥 LOGO/FAVICON - TAMBAHAN LENGKAP -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+
+  <!-- SEO Open Graph -->
+  <meta property="og:title" content="SMAN 8 Tanjung Jabung Timur">
+  <meta property="og:description" content="Sekolah Menengah Atas Negeri terbaik di Tanjung Jabung Timur">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:url" content="https://sman8tanjabtim.sch.id">
+
+  <link rel="stylesheet" href="css/style_cek.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="assets/images/logo.png" alt="Logo SMAN 8">
+        <span>SMAN 8 Tanjung Jabung Timur</span>
+      </div>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Beranda</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#about" class="nav-link">Tentang</a>
+        </li>
+        <div hidden>
+          <li class="nav-item">
+            <a href="index.html#programs" class="nav-link">Program</a>
+          </li>
+        </div>
+        <li class="nav-item">
+          <a href="index.html#gallery" class="nav-link">Galeri</a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#contact" class="nav-link">Kontak</a>
+        </li>
+        <li class="nav-item">
+          <a href="pengumuman.html" class="nav-link active">Pengumuman</a>
+        </li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="card" aria-labelledby="cekTitle">
+
+      <h1 id="cekTitle" style="text-align:center;">Cek Pengumuman Berdasarkan Nomor Pendaftaran</h1>
+      <p class="message" id="messageCenter" style="margin-top:8px; text-align:center;">
+        Kalian dapat memeriksa status penerimaan siswa dengan memasukkan Nomor Pendaftaran Kalian di bawah ini.</br>
+        Pastikan Nomor Pendaftaran yang dimasukkan benar dan terdiri dari 3 digit angka.
+      </p>
+
+      <div class="meta" style="grid-template-columns: 1.4fr .6fr;">
+        <div class="meta-item">
+          <label class="label" for="npInput" style="text-align:center;">Nomor Pendaftaran</label>
+          <input id="npInput" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="Contoh: 000" disabled
+            style="
+              width:100%;
+              padding: 12px 12px;
+              border-radius: 12px;
+              border: 1px solid rgba(255,255,255,.14);
+              background: rgba(0,0,0,.18);
+              color: var(--text);
+              outline: none;
+              font-weight: 800;
+              letter-spacing: .2px;
+              text-align:center;
+            " />
+          <div class="note" id="hint" style="text-align:center;">
+            Silahkan masukkan Nomor Pendaftaran Kalian di atas ini.
+          </div>
+          <div id="countdownWrap" class="countdown-container">
+
+            <h3 class="countdown-title">
+              ⏰ Pengumuman Akan Dibuka Dalam:
+            </h3>
+
+            <div class="countdown-boxes">
+
+              <div class="time-box">
+                <span id="days">00</span>
+                <small>HARI</small>
+              </div>
+
+              <div class="time-box">
+                <span id="hours">00</span>
+                <small>JAM</small>
+              </div>
+
+              <div class="time-box">
+                <span id="minutes">00</span>
+                <small>MENIT</small>
+              </div>
+
+              <div class="time-box">
+                <span id="seconds">00</span>
+                <small>DETIK</small>
+              </div>
+
+            </div>
+
+            <p id="countdownSub" class="countdown-status">Menu Cek akan dibuka pada waktu yang ditentukan</p>
+          </div>
+
+          <div class="final-message" id="final-message" style="display:none;">
+            🎉 PENGUMUMAN TELAH DIBUKA! 🎉
+
+          </div>
+        </div>
+        <div class="meta-item" style="display:flex;align-items:flex;">
+          <button class="btn" id="btnCek" type="button" style="width:100%" disabled>
+            Cek</br>
+            Pengumuman
+          </button>
+        </div>
+      </div>
+
+
+      <div id="result" class="meta" style="margin-top:16px;">
+        <!-- hasil akan muncul di sini -->
+      </div>
+
+      <div class="actions actions-center" style="margin-top:14px">
+        <a class="btn btn-secondary" href="pengumuman.html">Kembali ke Pengumuman</a>
+      </div>
+
+
+      <p class="note" id="note" role="status" aria-live="polite"></p>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img src="assets/images/logo.png" alt="Logo">
+              <span>SMAN 8 TJT</span>
+            </div>
+            <p>Sekolah Menengah Atas Negeri 8 Tanjung Jabung Timur</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="index.html#about">Tentang</a></li>
+              <li><a href="index.html#gallery">Galeri</a></li>
+              <li><a href="index.html#contact">Kontak</a></li>
+              <li><a href="pengumuman.html">Pengumuman</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="https://www.tiktok.com/@smandel.update?is_from_webapp=1&sender_device=pc"><i
+                  class="fab fa-tiktok"></i></a>
+              <a href="https://www.instagram.com/smandeltanjabtim?igsh=MWZocnJkZTFlc24zYQ=="><i
+                  class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 SMAN 8 Tanjung Jabung Timur. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="js/xlsx.full.min.js"></script>
+
+  <script src="spmb-check.js"></script>
+  <script src="script_spmb.js"></script>
+
+
+</body>
+
+</html>
+
