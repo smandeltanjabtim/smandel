@@ -292,6 +292,23 @@ h1 {
   flex: 1;
 }
 
+@media (max-width: 680px) {
+  .pengumuman-page {
+    min-height: auto;
+  }
+
+  .pengumuman-page .card,
+  .pengumuman-page .card2 {
+    flex: none;
+    height: auto;
+    min-height: 0;
+  }
+
+  .card,
+  .card2 {
+    padding: 18px 14px;
+  }
+}
 
 .actions-center {
   justify-content: center;
